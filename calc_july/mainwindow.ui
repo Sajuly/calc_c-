@@ -30,7 +30,7 @@
      </size>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -532,6 +532,16 @@
       </property>
       <property name="text">
        <string>+</string>
+      </property>
+     </widget>
+     <widget class="QCustomPlot" name="graphicsView" native="true">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>540</y>
+        <width>621</width>
+        <height>251</height>
+       </rect>
       </property>
      </widget>
     </widget>
@@ -1588,6 +1598,13 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QCustomPlot</class>
+   <extends>QWidget</extends>
+   <header>qcustomplot.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

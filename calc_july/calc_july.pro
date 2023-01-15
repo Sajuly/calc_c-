@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -13,14 +13,16 @@ SOURCES += \
     mainwindow.cpp \
     model/credit.cc \
     model/parser.cc \
-    model/rpn_executor.cc
+    model/rpn_executor.cc \
+    qcustomplot.cpp
 
 HEADERS += \
     mainwindow.h \
     model/credit.h \
     model/parser.h \
     model/rpn_executor.h \
-    model/token.h
+    model/token.h \
+    qcustomplot.h
 
 FORMS += \
     mainwindow.ui

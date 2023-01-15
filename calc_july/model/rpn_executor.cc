@@ -134,6 +134,8 @@ double executor(std::list<s21::Token> rpn, double x) {
   s21::Token current_tt, a, b;
   s21::Token val;
   s21::Token x_tt;
+  x_tt.token_type = TT_DIGIT;
+  x_tt.value = x;
 
   for (auto current_tt : rpn) {
     switch (current_tt.token_type) {

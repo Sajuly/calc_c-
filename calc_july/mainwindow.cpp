@@ -263,7 +263,34 @@ void MainWindow::on_btnRavno_clicked()
 
 void MainWindow::on_graphic_button_clicked()
 {
+    ui->graphicsView->clearGraphs();
+    ui->graphicsView->xAxis->setRange(-10, 10);
+    ui->graphicsView->yAxis->setRange(-2, 2);
+    ui->graphicsView->addGraph();
 
+   double x = -100;
+   double y = 0;
+   double delta = 0.1;
+
+   std::list<s21::Token> parsed_list;
+   std::list<s21::Token> rpn_list;
+   QString str1 = ui->lineEdit->text();
+   QByteArray ba = str1.toLocal8Bit();
+   char *func = ba.data();
+
+   parsed_list = parse_source(func);
+   bool err = check_parse_errors(parsed_list);
+   if (err == 1) {
+       ui->result_label->setText("Unknown lexema");
+   } else {
+       rpn_list = rpn(parsed_list);
+       for (int i = 0; i < 2000; i++) {
+           y = executor(rpn_list, x);
+           ui->graphicsView->graph(0)->addData(x, y);
+           x += delta;
+       }
+   }
+   ui->graphicsView->replot();
 }
 
 
